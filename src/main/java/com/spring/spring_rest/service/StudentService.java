@@ -35,4 +35,12 @@ public interface StudentService {
      * @return
      */
     StudentDto updateStudent(Long theId, StudentDto theStudentDto);
+
+    /**
+     * 
+     * @param theId
+     * @param theStudentDto
+     * @return
+     */
+    StudentDto patchStudent(Long theId, StudentDto theStudentDto);
 }

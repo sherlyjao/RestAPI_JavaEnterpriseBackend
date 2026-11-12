@@ -72,4 +72,24 @@ public class StudentServiceImplement implements StudentService {
         Student saved = studentRepo.save(student);
         return StudentMapper.mapToStudentDto(saved);
     }
+
+    @Override 
+    public StudentDto patchStudent(Long theId, StudentDto theStudentDto) {
+        Student student = StudentMapper.mapToStudent(getStudentById(theId));
+
+        if (theStudentDto.getFirstName() != null) {
+            student.setFirstName(theStudentDto.getFirstName());
+        }
+
+        if (theStudentDto.getLastName() != null) {
+            student.setLastName(theStudentDto.getLastName());
+        }
+
+        if (theStudentDto.getEmail() != null) {
+            student.setEmail(theStudentDto.getEmail());
+        }
+
+        Student saved = studentRepo.save(student);
+        return StudentMapper.mapToStudentDto(saved);
+    }
 }
