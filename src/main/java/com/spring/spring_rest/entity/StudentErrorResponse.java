@@ -9,7 +9,7 @@ public class StudentErrorResponse {
     //==========
     private int status;
     private String message;
-    private long timeStamp;
+    private Long timeStamp;
 
 
     //==========
@@ -18,7 +18,7 @@ public class StudentErrorResponse {
     public StudentErrorResponse() {
     }
 
-    public StudentErrorResponse(int status, String message, long timeStamp) {
+    public StudentErrorResponse(int status, String message, Long timeStamp) {
         this.status = status;
         this.message = message;
         this.timeStamp = timeStamp;
@@ -52,7 +52,19 @@ public class StudentErrorResponse {
         return message;
     }
 
-    public long getTimeStamp() {
+    public Long getTimeStamp() {
         return timeStamp;
+    }
+
+    
+    //==========
+    // Methods
+    //==========
+    @Override
+    public String toString() {
+        return 
+        "StudentErrorResponse [status=" + status +
+        ", message=" + message + 
+        ", timeStamp=" + timeStamp + "]";
     }
 }
