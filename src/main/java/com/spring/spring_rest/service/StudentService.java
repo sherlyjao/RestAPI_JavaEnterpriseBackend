@@ -43,4 +43,10 @@ public interface StudentService {
      * @return
      */
     StudentDto patchStudent(Long theId, StudentDto theStudentDto);
+
+    /**
+     * 
+     * @param theId
+     */
+    void deleteStudentById(Long theId);
 }

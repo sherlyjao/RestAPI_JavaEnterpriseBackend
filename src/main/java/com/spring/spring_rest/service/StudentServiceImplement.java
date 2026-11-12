@@ -92,4 +92,10 @@ public class StudentServiceImplement implements StudentService {
         Student saved = studentRepo.save(student);
         return StudentMapper.mapToStudentDto(saved);
     }
+
+    @Override 
+    public void deleteStudentById(Long theId) {
+        getStudentById(theId);
+        studentRepo.deleteById(theId);
+    }
 }
