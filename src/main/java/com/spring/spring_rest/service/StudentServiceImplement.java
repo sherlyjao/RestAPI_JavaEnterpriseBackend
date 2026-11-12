@@ -1,5 +1,8 @@
 package com.spring.spring_rest.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.spring.spring_rest.dto.StudentDto;
@@ -46,5 +49,15 @@ public class StudentServiceImplement implements StudentService {
             );
 
         return StudentMapper.mapToStudentDto(student);
+    }
+
+    @Override 
+    public List<StudentDto> getAllStudents() {
+        List<Student> students = studentRepo.findAll();
+
+        return students
+            .stream()
+            .map((student)-> StudentMapper.mapToStudentDto(student))
+            .collect(Collectors.toList());
     }
 }
