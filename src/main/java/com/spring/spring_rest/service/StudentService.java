@@ -12,4 +12,11 @@ public interface StudentService {
      * @return
      */
     StudentDto createStudent(StudentDto theStudentDto);
+
+    /**
+     * 
+     * @param theId
+     * @return
+     */
+    StudentDto getStudentById(Long theId);
 }

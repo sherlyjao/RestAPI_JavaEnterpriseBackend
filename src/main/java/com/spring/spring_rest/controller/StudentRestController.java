@@ -18,13 +18,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 /**
  * StudentRestController
  */
 @RestController 
-@RequestMapping ("/api")
+@RequestMapping ("/api/students")
 public class StudentRestController {
     //==========
     // Fields
@@ -63,31 +65,31 @@ public class StudentRestController {
      * 
      * @return
      */
-    @GetMapping("/students")
-    public List<Student> getStudents() {
-        return theStudents;
-    }
+    // @GetMapping("/students")
+    // public List<Student> getStudents() {
+    //     return theStudents;
+    // }
     
     // /**
     //  * 
     //  * @param studentId
     //  * @return
     //  */
-    @GetMapping ("/students/{studentId}")
-    public Student getStudent(@PathVariable int studentId) {
+    // @GetMapping ("/students/{studentId}")
+    // public Student getStudent(@PathVariable int studentId) {
 
-        if (
-            studentId >= theStudents.size() ||
-            studentId < 0
-        ) {
+    //     if (
+    //         studentId >= theStudents.size() ||
+    //         studentId < 0
+    //     ) {
             
-            throw new StudentNotFoundException(
-                "Student id " + studentId + " not found!"
-            );
-        }
+    //         throw new StudentNotFoundException(
+    //             "Student id " + studentId + " not found!"
+    //         );
+    //     }
 
-        return theStudents.get(studentId);
-    }
+    //     return theStudents.get(studentId);
+    // }
 
     /**
      * @param entity
@@ -102,4 +104,13 @@ public class StudentRestController {
 
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
+
+    @GetMapping("{id}")
+    public ResponseEntity<StudentDto> getStudentById(
+        @PathVariable Long id
+    ) {
+
+        return ResponseEntity.ok(studentService.getStudentById(id));
+    }
+    
 }
