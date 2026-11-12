@@ -60,4 +60,16 @@ public class StudentServiceImplement implements StudentService {
             .map((student)-> StudentMapper.mapToStudentDto(student))
             .collect(Collectors.toList());
     }
+
+    @Override 
+    public StudentDto updateStudent(Long theId, StudentDto theStudentDto) {
+        Student student = StudentMapper.mapToStudent(getStudentById(theId));
+
+        student.setFirstName(theStudentDto.getFirstName());
+        student.setLastName(theStudentDto.getLastName());
+        student.setEmail(theStudentDto.getEmail());
+
+        Student saved = studentRepo.save(student);
+        return StudentMapper.mapToStudentDto(saved);
+    }
 }

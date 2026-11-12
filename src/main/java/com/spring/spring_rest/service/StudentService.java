@@ -27,4 +27,12 @@ public interface StudentService {
      * @return
      */
     List<StudentDto> getAllStudents();
+
+    /**
+     * 
+     * @param theId
+     * @param theStudentDto
+     * @return
+     */
+    StudentDto updateStudent(Long theId, StudentDto theStudentDto);
 }
