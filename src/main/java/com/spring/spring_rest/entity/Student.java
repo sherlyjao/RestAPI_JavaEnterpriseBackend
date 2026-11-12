@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 /**
- * Student
+ * JPA entity class representing a student record mapped to a database table.
  */
 @Entity 
 public class Student {

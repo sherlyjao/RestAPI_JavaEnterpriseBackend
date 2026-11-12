@@ -1,13 +1,13 @@
 package com.spring.spring_rest.controller;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.spring.spring_rest.dto.StudentDto;
 // import com.spring.spring_rest.exception.StudentNotFoundException;
 import com.spring.spring_rest.service.StudentService;
-import jakarta.annotation.PostConstruct;
+// import jakarta.annotation.PostConstruct;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +20,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 // import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PutMapping;
 
-
-
 /**
- * StudentRestController
+ * REST controller handling HTTP requests for student CRUD operations,
+ * under the {@code /api/students} endpoint.
  */
 @RestController 
 @RequestMapping ("/api/students")
@@ -31,7 +30,7 @@ public class StudentRestController {
     //==========
     // Fields
     //==========
-    private List<Student> theStudents;
+    // private List<Student> theStudents;
     private StudentService studentService;
 
 
@@ -46,35 +45,37 @@ public class StudentRestController {
     //==========
     // Methods
     //==========
-    @PostConstruct 
-    public void initialize() {
-        theStudents = new ArrayList<>();
+    // @PostConstruct 
+    // public void initialize() {
+    //     theStudents = new ArrayList<>();
 
-        String[][] studentData = {
-            {"Harry James", "Potter"},
-            {"Hermione", "Granger"},
-            {"Ronald", "Weasley"},
-        };
+    //     String[][] studentData = {
+    //         {"Harry James", "Potter"},
+    //         {"Hermione", "Granger"},
+    //         {"Ronald", "Weasley"},
+    //     };
 
-        for (String[] data : studentData) {
-            theStudents.add(new Student(data[0], data[1]));
-        }
-    }
+    //     for (String[] data : studentData) {
+    //         theStudents.add(new Student(data[0], data[1]));
+    //     }
+    // }
 
     /**
+     * Retrieves the in-memory list of all {@code Student} objects.
      * 
-     * @return
+     * @return a List containing all sample Student records.
      */
     // @GetMapping("/students")
     // public List<Student> getStudents() {
     //     return theStudents;
     // }
     
-    // /**
-    //  * 
-    //  * @param studentId
-    //  * @return
-    //  */
+    /**
+     * Retrieves a single Student from the in-memory list by its ID.
+     * 
+     * @param studentId the ID of student to be retrieved.
+     * @return a Student matching the ID.
+     */
     // @GetMapping ("/students/{studentId}")
     // public Student getStudent(@PathVariable int studentId) {
 
@@ -92,8 +93,10 @@ public class StudentRestController {
     // }
 
     /**
-     * @param entity
-     * @return
+     * Creates a new student record from the validated request body.
+     * 
+     * @param entity the valid {@link StudentDto} containing the student deets.
+     * @return a {@link ResponseEntity} containing the saved object and status.
      */
     @PostMapping 
     public ResponseEntity<StudentDto> createStudents(
@@ -106,9 +109,10 @@ public class StudentRestController {
     }
 
     /**
+     * Retrieves a specific student record by its unique identifier.
      * 
-     * @param id
-     * @return
+     * @param id the unique ID of the student to retrieve.
+     * @return a {@link ResponseEntity} containing the saved object and status.
      */
     @GetMapping("{id}")
     public ResponseEntity<StudentDto> getStudentById(
@@ -119,8 +123,9 @@ public class StudentRestController {
     }
     
     /**
+     * Retrieves all existing student records.
      * 
-     * @return
+     * @return a {@link ResponseEntity} containing the saved object and status.
      */
     @GetMapping 
     public ResponseEntity<List<StudentDto>> getAllStudents() {
@@ -128,10 +133,11 @@ public class StudentRestController {
     }
 
     /**
+     * Replaces an existing student record with the provided validated data.
      * 
-     * @param id
-     * @param theStudentDto
-     * @return
+     * @param id the unique ID of the student to update.
+     * @param theStudentDto valid object containing the updated student deets.
+     * @return a {@link ResponseEntity} containing updated object and status.
      */
     @PutMapping ("{id}")
     public ResponseEntity<StudentDto> updateStudent(
@@ -145,10 +151,12 @@ public class StudentRestController {
     }
 
     /**
+     * Partially updates an existing student record.
+     * Can accept null fields from param DTO.
      * 
-     * @param id
-     * @param theStudentDto
-     * @return
+     * @param id the unique ID of the student to update.
+     * @param theStudentDto valid object containing the updated student deets.
+     * @return a {@link ResponseEntity} containing updated object and status.
      */
     @PatchMapping ("{id}")
     public ResponseEntity<StudentDto> patchStudent(
@@ -161,6 +169,12 @@ public class StudentRestController {
         );
     }
 
+    /**
+     * Deletes a student record by its unique identifier.
+     * 
+     * @param id the unique ID of the student to delete.
+     * @return a {@link ResponseEntity} with confirmation message and status.
+     */
     @DeleteMapping ("{id}")
     public ResponseEntity<String> deleteStudentById(
         @PathVariable Long id

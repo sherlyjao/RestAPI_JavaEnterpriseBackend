@@ -1,7 +1,9 @@
 package com.spring.spring_rest.controller;
 
 /**
- * Student
+ * Simple POJO representing a student.
+ * with basic personal information (first and last name),
+ * used for initial REST API demonstrations.
  */
 public class Student {
     //==========

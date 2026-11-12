@@ -1,7 +1,8 @@
 package com.spring.spring_rest.entity;
 
 /**
- * StudentErrorResponse
+ * POJO representing a standardized JSON error,
+ * when an exception occurs in the REST API.
  */
 public class StudentErrorResponse {
     //==========

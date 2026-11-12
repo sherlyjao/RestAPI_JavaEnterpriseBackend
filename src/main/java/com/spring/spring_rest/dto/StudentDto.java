@@ -4,7 +4,9 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 
 /**
- * StudentDto
+ * DTO representing student information transferred between,
+ * the client and the REST API, 
+ * including field-level input validation constraints.
  */
 public class StudentDto {
     //==========
