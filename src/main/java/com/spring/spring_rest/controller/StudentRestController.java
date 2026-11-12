@@ -10,6 +10,7 @@ import com.spring.spring_rest.exception.StudentNotFoundException;
 import com.spring.spring_rest.service.StudentService;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -94,7 +95,7 @@ public class StudentRestController {
      */
     @PostMapping 
     public ResponseEntity<StudentDto> createStudents(
-        @RequestBody StudentDto theStudentDto
+        @Valid @RequestBody StudentDto theStudentDto
     ) {
 
         StudentDto saved = studentService.createStudent(theStudentDto);
