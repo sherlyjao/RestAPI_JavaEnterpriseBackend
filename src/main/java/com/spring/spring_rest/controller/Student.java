@@ -6,16 +6,11 @@ package com.spring.spring_rest.controller;
  * used for initial REST API demonstrations.
  */
 public class Student {
-    //==========
-    // Fields
-    //==========
+
     private String firstName;
     private String lastName;
 
 
-    //==========
-    // Constructor
-    //==========
     public Student() {
     }
 
@@ -25,9 +20,6 @@ public class Student {
     }
 
 
-    //==========
-    // Setters
-    //==========
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -37,9 +29,6 @@ public class Student {
     }
 
 
-    //==========
-    // Getters
-    //==========
     public String getFirstName() {
         return firstName;
     }

@@ -11,9 +11,6 @@ import jakarta.persistence.Id;
  */
 @Entity 
 public class Student {
-    //==========
-    // Fields
-    //==========
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,9 +25,6 @@ public class Student {
     private String email;
 
 
-    //==========
-    // Constructors
-    //==========
     public Student() {
     }
 
@@ -48,9 +42,6 @@ public class Student {
     }
     
 
-    //==========
-    // Setters
-    //==========
     public void setId(Long id) {
         this.id = id;
     }
@@ -68,9 +59,6 @@ public class Student {
     }
 
 
-    //==========
-    // Getters
-    //==========
     public Long getId() {
         return id;
     }
@@ -88,9 +76,6 @@ public class Student {
     }
 
 
-    //==========
-    // Methods
-    //==========
     @Override
     public String toString() {
         return "Student [id=" + id +
